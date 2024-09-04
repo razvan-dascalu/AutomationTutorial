@@ -1,5 +1,6 @@
 package tests;
 
+import helpMethods.ElementMethods;
 import org.testng.annotations.Test;
 
 import org.openqa.selenium.*;
@@ -9,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,10 +27,14 @@ public class TabWindowText {
         //facem browserul maximise
         driver.manage().window().maximize();
 
-        WebElement alertFrameWindowMenu=driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Window']"));
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();",alertFrameWindowMenu);
+        ElementMethods elementMethods = new ElementMethods(driver);
 
+        WebElement alertFrameWindowMenu=driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Window']"));
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].click();",alertFrameWindowMenu);
+        elementMethods.clickJSElement(alertFrameWindowMenu);
+
+       // elementMethods.clickJSElement(browserWindowsElement);
 
 
 
